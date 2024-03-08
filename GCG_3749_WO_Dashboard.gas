@@ -1,0 +1,729 @@
+Program.Sub.ScreenSU.Start
+gui.f_WO_Dash..create
+gui.f_WO_Dash..caption("BOM w/ WO Dashboard")
+gui.f_WO_Dash..size(19080,12165)
+gui.f_WO_Dash..minx(0)
+gui.f_WO_Dash..miny(0)
+gui.f_WO_Dash..position(6720,4410)
+gui.f_WO_Dash..event(unload,f_wo_dash_unload)
+gui.f_WO_Dash..alwaysontop(False)
+gui.f_WO_Dash..fontname("Arial")
+gui.f_WO_Dash..fontsize(8)
+gui.f_WO_Dash..forecolor(0)
+gui.f_WO_Dash..fontstyle(,,,,)
+gui.f_WO_Dash..BackColor(-2147483633)
+gui.f_WO_Dash..controlbox(True)
+gui.f_WO_Dash..maxbutton(False)
+gui.f_WO_Dash..minbutton(True)
+gui.f_WO_Dash..mousepointer(0)
+gui.f_WO_Dash..moveable(True)
+gui.f_WO_Dash..sizeable(False)
+gui.f_WO_Dash..ShowInTaskBar(True)
+gui.f_WO_Dash..titlebar(True)
+gui.f_WO_Dash.lbl1.create(label,"Parent Number",True,1110,255,1,65,100,True,0,Arial,8,-2147483633,0)
+gui.f_WO_Dash.lbl1.defaultvalue("")
+gui.f_WO_Dash.lbl1.controlgroup(0)
+gui.f_WO_Dash.lbl2.create(label,"Rev",True,360,255,1,2520,100,True,0,Arial,8,-2147483633,0)
+gui.f_WO_Dash.lbl2.defaultvalue("")
+gui.f_WO_Dash.lbl2.controlgroup(0)
+gui.f_WO_Dash.lbl3.create(label,"Description",True,885,255,1,3105,100,True,0,Arial,8,-2147483633,0)
+gui.f_WO_Dash.lbl3.defaultvalue("")
+gui.f_WO_Dash.lbl3.controlgroup(0)
+gui.f_WO_Dash.lbl4.create(label,"UM",True,330,255,1,6250,115,True,0,Arial,8,-2147483633,0)
+gui.f_WO_Dash.lbl4.defaultvalue("")
+gui.f_WO_Dash.lbl4.controlgroup(0)
+gui.f_WO_Dash.lbl5.create(label,"Unit Cost",True,705,255,1,6785,100,True,0,Arial,8,-2147483633,0)
+gui.f_WO_Dash.lbl5.defaultvalue("")
+gui.f_WO_Dash.lbl5.controlgroup(0)
+gui.f_WO_Dash.txtParent.create(textbox,"",True,2370,300,0,50,300,False,0,Arial,8,-2147483643,1)
+gui.f_WO_Dash.txtParent.defaultvalue("")
+gui.f_WO_Dash.txtParent.controlgroup(0)
+gui.f_WO_Dash.txtRev.create(textbox,"",True,540,300,0,2495,300,False,0,Arial,8,-2147483643,1)
+gui.f_WO_Dash.txtRev.defaultvalue("")
+gui.f_WO_Dash.txtRev.controlgroup(0)
+gui.f_WO_Dash.txtDesc.create(textbox,"",True,3090,300,0,3090,300,False,0,Arial,8,-2147483643,1)
+gui.f_WO_Dash.txtDesc.defaultvalue("")
+gui.f_WO_Dash.txtDesc.controlgroup(0)
+gui.f_WO_Dash.txtUM.create(textbox,"",True,450,300,0,6260,300,False,0,Arial,8,-2147483643,1)
+gui.f_WO_Dash.txtUM.defaultvalue("")
+gui.f_WO_Dash.txtUM.controlgroup(0)
+gui.f_WO_Dash.txtUC.create(textbox,"",True,1335,300,0,6785,300,False,1,Arial,8,-2147483643,1)
+gui.f_WO_Dash.txtUC.defaultvalue("")
+gui.f_WO_Dash.txtUC.controlgroup(0)
+gui.f_WO_Dash.gsfgBOM.create(gsflexgrid)
+gui.f_WO_Dash.gsfgBOM.FixedRows(0)
+gui.f_WO_Dash.gsfgBOM.FixedCols(0)
+gui.f_WO_Dash.gsfgBOM.visible(True)
+gui.f_WO_Dash.gsfgBOM.size(18690,10290)
+gui.f_WO_Dash.gsfgBOM.zorder(0)
+gui.f_WO_Dash.gsfgBOM.position(50,670)
+gui.f_WO_Dash.gsfgBOM.enabled(True)
+gui.f_WO_Dash.gsfgBOM.event(mouseup,gsfgbom_mouseup)
+gui.f_WO_Dash.cmdExplode.create(button)
+gui.f_WO_Dash.cmdExplode.caption("Explode BOM")
+gui.f_WO_Dash.cmdExplode.visible(True)
+gui.f_WO_Dash.cmdExplode.size(1275,375)
+gui.f_WO_Dash.cmdExplode.zorder(0)
+gui.f_WO_Dash.cmdExplode.position(130,11090)
+gui.f_WO_Dash.cmdExplode.enabled(True)
+gui.f_WO_Dash.cmdExplode.fontname("Arial")
+gui.f_WO_Dash.cmdExplode.fontsize(8)
+gui.f_WO_Dash.cmdExplode.event(click,cmdexplode_click)
+gui.f_WO_Dash.cmdExplode.defaultvalue("")
+gui.f_WO_Dash.cmdExplode.controlgroup(0)
+gui.f_WO_Dash.cmdImplode.create(button)
+gui.f_WO_Dash.cmdImplode.caption("Implode BOM")
+gui.f_WO_Dash.cmdImplode.visible(True)
+gui.f_WO_Dash.cmdImplode.size(1155,375)
+gui.f_WO_Dash.cmdImplode.zorder(0)
+gui.f_WO_Dash.cmdImplode.position(1580,11090)
+gui.f_WO_Dash.cmdImplode.enabled(True)
+gui.f_WO_Dash.cmdImplode.fontname("Arial")
+gui.f_WO_Dash.cmdImplode.fontsize(8)
+gui.f_WO_Dash.cmdImplode.event(click,cmdimplode_click)
+gui.f_WO_Dash.cmdImplode.defaultvalue("")
+gui.f_WO_Dash.cmdImplode.controlgroup(0)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.sEBOM.Declare(String)
+Variable.UDT.uBOM.Define("ITEM_NUMBER",String)
+Variable.UDT.uBOM.Define("LEVEL",String)
+Variable.UDT.uBOM.Define("PART",String)
+Variable.UDT.uBOM.Define("WO",String)
+Variable.UDT.uBOM.Define("DESCRIPTION",String)
+Variable.UDT.uBOM.Define("SOURCE",String)
+Variable.UDT.uBOM.Define("UM",String)
+Variable.UDT.uBOM.Define("EXPECTED_DATE",Date)
+Variable.UDT.uBOM.Define("QTY_USED",String)
+Variable.UDT.uBOM.Define("QTY_ONHAND",String)
+Variable.UDT.uBOM.Define("QTY_ONORDER",String)
+Variable.UDT.uBOM.Define("PO_NUMBER",String)
+Variable.UDT.uBOM.Define("REQUIREMENTS",String)
+Variable.UDT.uBOM.Define("NET",String)
+Variable.UDT.uBOM.Define("FREIGHT",Float)
+Variable.uGlobal.uBom.Declare("uBOM")
+Variable.uGlobal.uTemp.Declare("uBOM")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sParent.Declare(String)
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,16300)
+	V.Passed.000214.Set("BOM Dashboard")
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,16360)
+	F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	F.Intrinsic.Control.CallSub(Buildstyle)
+	F.Intrinsic.Control.CallSub(Explode_bom)
+	F.Intrinsic.Control.CallSub(Loadudt)
+	F.Intrinsic.Control.CallSub(Cmdimplode_click)
+	Gui.f_WO_Dash.txtParent.Text(V.Passed.000001)
+	Gui.f_WO_Dash.txtRev.Text(V.Passed.000093)
+	Gui.f_WO_Dash.txtDesc.Text(V.Passed.000003)
+	Gui.f_WO_Dash.txtUM.Text(V.Passed.000004)
+	
+	F.Intrinsic.Control.If(V.Passed.000005,=,".0000")
+		Gui.f_WO_Dash.txtUC.Text("0.0000")
+	F.Intrinsic.Control.Else
+		Gui.f_WO_Dash.txtUC.Text(V.Passed.000005)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.f_WO_Dash..Show
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,17240)
+	F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-TEXT-1,"HIDE",0)
+	F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-1,"HIDE",0)
+
+	F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-TEXT-1,"LOCK",0)
+
+	F.Intrinsic.Variable.SetProperty("GAB-TEXT-1","PL",295)
+	F.Intrinsic.Variable.SetProperty("GAB-TEXT-1","PT",93)
+
+	F.Intrinsic.Variable.SetProperty("GAB-LBL-1","PL",295)
+	F.Intrinsic.Variable.SetProperty("GAB-LBL-1","PT",76)
+	F.Intrinsic.Variable.SetProperty("GAB-LBL-1","PW",80)
+
+	V.Passed.GAB-LBL-1.Set("Job-Item Number")
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,17261)
+	F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	F.Intrinsic.Control.CallSub(Savejobitem)
+	F.Intrinsic.Control.CallSub(F_wo_dash_unload)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3559_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_wo_dash_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.Explode_BOM.Start
+F.Intrinsic.Control.SetErrorHandler("Explode_BOM_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sFilePath.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.bFileExist.Declare(Boolean)
+V.Local.sPart.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sParent.Declare(String)
+V.Local.sRet.Declare(String)
+
+V.Local.sPart.Set(V.Passed.000001)
+V.Local.sRev.Set(V.Passed.000093)
+
+'Write file path and check to see if a file by this name already exists
+F.Intrinsic.String.GSSPartString(V.Local.sPart,V.Local.sRev,V.Local.sParent)
+F.Intrinsic.String.Build("{0}\GAB\GAS\BOM{1}.txt",V.Caller.PluginsDir,V.Caller.Terminal,V.Local.sFilePath)
+F.Intrinsic.File.Exists(V.Local.sFilePath,V.Local.bFileExist)
+'If exists delete file
+F.Intrinsic.Control.If(V.Local.bFileExist,=,True)
+	F.Intrinsic.File.DeleteFile(V.Local.sFilePath)
+F.Intrinsic.Control.EndIf
+'Set Data for callwrapper and write to file
+F.Intrinsic.String.Build("0{0}{1}{2}{3}",V.Ambient.Tab,V.Local.sParent,V.Ambient.Tab,V.Local.sFilePath,V.Local.sFile)
+F.Intrinsic.File.String2File(V.Local.sFilePath,V.Local.sFile)
+'Callwrapper updates file with filename of Exploded BOM
+F.Global.General.CallWrapperSync(410000,V.Local.sFilePath)
+'Get the filename of the file Callwrapper created.
+F.Intrinsic.File.File2StringArray(V.Local.sFilePath,V.Ambient.Tab,V.Local.sText)
+F.Intrinsic.File.GetFileNameFromFQN(V.Local.sText(3),V.Local.sText)
+'Have to split to remove additional spaces
+F.Intrinsic.String.Split(V.Local.sText," ",V.Local.sText)
+F.Intrinsic.String.Build("{0}\GAB\GAS\{1}",V.Caller.PluginsDir,V.Local.sText,V.Local.sFilePath)
+'Setting Exploded BOM data to global variable for use in loading UDT.
+F.Intrinsic.File.File2StringArray(V.Local.sFilePath,V.Ambient.NewLine,V.Global.sEBOM)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Explode_BOM_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3559_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_wo_dash_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Explode_BOM.End
+
+Program.Sub.LoadUDT.Start
+F.Intrinsic.Control.SetErrorHandler("LoadUDT_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCount.Declare(Long)
+V.Local.sBOMPart.Declare(String)
+V.Local.sBOM.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iUDT.Declare(Long,0)
+V.Local.sWO.Declare(String)
+V.Local.sSuf.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.sSource.Declare(String)
+
+V.uGlobal.uBom.Redim(-1,-1)
+
+F.Intrinsic.String.Split(V.Global.sEBOM,V.Ambient.NewLine,V.Local.sBOM)
+
+F.Intrinsic.Control.For(V.Local.iCount,7,V.Global.sEBOM.UBound,1)
+	F.Intrinsic.String.Split(V.Global.sEBOM(V.Local.iCount),"|~|",V.Local.sBOMPart)
+
+	F.Intrinsic.Control.If(V.Local.iCount,=,7,"OR",V.Local.sBOMPart(0),=,"")
+		F.Intrinsic.Control.GoTo("Skip")
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.uGlobal.uBom.UBound,=,-1)
+		V.uGlobal.uBom.Redim(0,0)
+	F.Intrinsic.Control.Else
+		V.uGlobal.uBom.RedimPreserve(0,V.Local.iUDT)
+	F.Intrinsic.Control.EndIf
+
+	'Set data received from file
+	V.uGlobal.uBom(V.Local.iUDT)!LEVEL.Set(V.Local.sBOMPart(1))
+	V.uGlobal.uBom(V.Local.iUDT)!PART.Set(V.Local.sBOMPart(2))
+	V.uGlobal.uBom(V.Local.iUDT)!DESCRIPTION.Set(V.Local.sBOMPart(3))
+	V.uGlobal.uBom(V.Local.iUDT)!SOURCE.Set(V.Local.sBOMPart(5))
+	V.uGlobal.uBom(V.Local.iUDT)!QTY_USED.Set(V.Local.sBOMPart(6))
+	V.uGlobal.uBom(V.Local.iUDT)!QTY_ONHAND.Set(V.Local.sBOMPart(7))
+	V.uGlobal.uBom(V.Local.iUDT)!QTY_ONORDER.Set(V.Local.sBOMPart(8))
+	V.uGlobal.uBom(V.Local.iUDT)!REQUIREMENTS.Set(V.Local.sBOMPart(9))
+	V.uGlobal.uBom(V.Local.iUDT)!NET.Set(V.Local.sBOMPart(10))
+
+	'Get TAG Information
+	F.Intrinsic.String.Build("SELECT TAG FROM V_BOM_MSTR WHERE PART = '{0}' AND PARENT = '{1}'",V.Local.sBOMPart(2).Trim,V.Local.sBOMPart(12),V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+		V.uGlobal.uBom(V.Local.iUDT)!ITEM_NUMBER.Set(V.ODBC.con!rst.FieldValTrim!TAG)
+	F.Intrinsic.Control.EndIf
+
+	F.ODBC.con!rst.Close
+	F.Intrinsic.String.Build("SELECT M.UM_INVENTORY,C.FREIGHT FROM INVENTORY_MSTR M, INVENTORY_COST C WHERE M.PART = '{0}' AND C.PART = M.PART",V.Local.sBOMPart(2),V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+		V.uGlobal.uBom(V.Local.iUDT)!UM.Set(V.ODBC.con!rst.FieldValTrim!UM_INVENTORY)
+		V.uGlobal.uBom(V.Local.iUDT)!FREIGHT.Set(V.ODBC.con!rst.FieldValTrim!FREIGHT)
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.con!rst.Close
+	
+	'Get Source Code
+	F.Intrinsic.String.Build("SELECT CODE_SOURCE FROM INVENTORY_MST2 WHERE PART = '{0}'",V.Local.sBOMPart(2),V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rstSource",V.Local.sSQL)
+
+	'Get WO Information
+	F.Intrinsic.String.Build("SELECT (WORKORDER + '-' + SUFFIX) AS WO FROM GCG_3749_BOM_WO WHERE PART = '{0}' ORDER BY SUFFIX",V.uGlobal.uBom(V.Local.iUDT)!PART.Trim,V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rstWO",V.Local.sSQL)
+	
+	F.Intrinsic.Control.If(V.ODBC.con!rstWO.EOF,<>,True)
+		V.uGlobal.uBom(V.Local.iUDT)!WO.Set(V.ODBC.con!rstWO.FieldValTrim!WO)
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.con!rstWO.Close
+	
+	'Get Expected Due Date
+	V.Local.sJob.Set(V.uGlobal.uBom(V.Local.iUDT)!WO)
+	F.Intrinsic.Control.If(V.Local.sJob.Trim,<>,"")
+		F.Intrinsic.String.Split(V.Local.sJob,"-",V.Local.sJob)
+		F.Intrinsic.String.Build("SELECT DATE_DUE FROM V_JOB_HEADER WHERE JOB = '{0}' AND SUFFIX = '{1}'",V.Local.sJob(0),V.Local.sJob(1),V.Local.sSQL)
+		F.ODBC.Connection!con.OpenLocalRecordsetRO("rstDue",V.Local.sSQL)
+		
+		F.Intrinsic.Control.If(V.ODBC.con!rstDue.EOF,<>,True)
+			V.uGlobal.uBom(V.Local.iUDT)!EXPECTED_DATE.Set(V.ODBC.con!rstDue.FieldValTrim!DATE_DUE)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rstDue.Close
+	F.Intrinsic.Control.EndIf
+	
+	'Get PO Information
+	F.Intrinsic.Control.If(V.ODBC.con!rstSource.EOF,<>,True)
+		F.Intrinsic.Control.If(V.ODBC.con!rstSource.FieldValTrim!CODE_SOURCE,=,"J","OR",V.ODBC.con!rstSource.FieldValTrim!CODE_SOURCE,=,"P")
+			F.Intrinsic.String.Build("SELECT WORKORDER,SUFFIX FROM GCG_3749_BOM_WO WHERE PART = '{0}' ORDER BY SUFFIX",V.Local.sBOMPart(12),V.Local.sSQL)
+			F.ODBC.Connection!con.OpenLocalRecordsetRO("rstWO",V.Local.sSQL)
+			
+			F.Intrinsic.Control.If(V.ODBC.con!rstWO.EOF,<>,True)
+				V.Local.sWO.Set(V.ODBC.con!rstWO.FieldValTrim!WORKORDER)
+				V.Local.sSuf.Set(V.ODBC.con!rstWO.FieldValTrim!SUFFIX)
+				F.Intrinsic.String.Build("SELECT PURCHASE_ORDER FROM V_PO_LINES WHERE PART = '{0}' AND JOB = '{1}' AND SUFFIX = '{2}'",V.Local.sBOMPart(2).Trim,V.Local.sWO.Trim,V.Local.sSuf.Trim,V.Local.sSQL)
+				F.ODBC.Connection!con.OpenLocalRecordsetRO("rstPO",V.Local.sSQL)
+				
+				F.Intrinsic.Control.If(V.ODBC.con!rstPO.EOF,<>,True)
+					V.uGlobal.uBom(V.Local.iUDT)!PO_NUMBER.Set(V.ODBC.con!rstPO.FieldValTrim!PURCHASE_ORDER)
+				F.Intrinsic.Control.EndIf
+				F.ODBC.con!rstPO.Close
+			F.Intrinsic.Control.EndIf
+			F.ODBC.con!rstWO.Close
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.con!rstSource.Close
+	
+	F.Intrinsic.Math.Add(V.Local.iUDT,1,V.Local.iUDT)
+	F.Intrinsic.Control.Label("Skip")
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadUDT_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3559_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_wo_dash_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.LoadUDT.End
+
+program.sub.f_wo_dash_unload.start
+F.Intrinsic.Control.SetErrorHandler("f_wo_dash_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("f_wo_dash_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3559_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.f_wo_dash_unload.end
+
+program.sub.cmdexplode_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdexplode_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.f_WO_Dash.gsfgBOM.Visible(0)
+
+F.Intrinsic.Control.If(V.uGlobal.uBom.UBound,<>,-1)
+	Gui.f_WO_Dash.gsfgBOM.ClearStyle(2)
+	F.Intrinsic.Control.CallSub(Buildstyle)
+	Gui.f_WO_Dash.gsfgBOM.LoadFromUDT("uGlobal.uBom","ITEM_NUMBER::0*!*LEVEL::1*!*PART::2*!*WO::3*!*DESCRIPTION::4*!*SOURCE::5*!*UM::6*!*EXPECTED_DATE::7*!*QTY_USED::8*!*QTY_ONHAND::9*!*QTY_ONORDER::10*!*PO_NUMBER::11*!*FREIGHT::12*!*REQUIREMENTS::13*!*NET::14",2)
+F.Intrinsic.Control.EndIf
+
+Gui.f_WO_Dash.gsfgBOM.Visible(1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdexplode_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3559_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.Callsub(F_wo_dash_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdexplode_click.end
+
+program.sub.cmdimplode_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdimplode_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.f_WO_Dash.gsfgBOM.Visible(0)
+
+F.Intrinsic.Control.If(V.uGlobal.uBom.UBound,<>,-1)
+	F.Intrinsic.Variable.UDTCopy(V.uGlobal.uBom,V.uGlobal.uTemp,False)
+	F.Intrinsic.Variable.UDTFlagAll(V.uGlobal.uTemp)
+	F.Intrinsic.Variable.UDTMultiUnFlag(V.uGlobal.uTemp!LEVEL,"1*******")
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uTemp)
+	Gui.f_WO_Dash.gsfgBOM.ClearStyle(2)
+	F.Intrinsic.Control.CallSub(Buildstyle)
+	Gui.f_WO_Dash.gsfgBOM.LoadFromUDT("uGlobal.uTemp","ITEM_NUMBER::0*!*LEVEL::1*!*PART::2*!*WO::3*!*DESCRIPTION::4*!*SOURCE::5*!*UM::6*!*EXPECTED_DATE::7*!*QTY_USED::8*!*QTY_ONHAND::9*!*QTY_ONORDER::10*!*PO_NUMBER::11*!*FREIGHT::12*!*REQUIREMENTS::13*!*NET::14",2)
+F.Intrinsic.Control.EndIf
+
+Gui.f_WO_Dash.gsfgBOM.Visible(1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdimplode_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3559_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_wo_dash_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdimplode_click.end
+
+program.sub.gsfgbom_mouseup.start
+F.Intrinsic.Control.SetErrorHandler("gsfgbom_mouseup_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sWO.Declare(String)
+V.Local.sPO.Declare(String)
+V.Local.sParam.Declare(String)
+
+F.Intrinsic.Control.If(V.Args.MouseRow,<>,0)
+	F.Intrinsic.Control.If(V.Args.MouseCol,=,3)
+		Gui.f_WO_Dash.gsfgBOM.GetTextMatrix(3,V.Args.MouseRow,V.Local.sWO)
+		
+		F.Intrinsic.Control.If(V.Local.sWO.Trim,=,"")
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.String.Split(V.Local.sWO,"-",V.Local.sWO)
+		F.Intrinsic.String.Build("7!*!{0}!*!{1}!*!A",V.Local.sWO(0),V.Local.sWO(1),V.Local.sParam)
+		F.Global.General.CallWrapperSync(450000,V.Local.sParam)
+	F.Intrinsic.Control.ElseIf(V.Args.MouseCol,=,11)
+		Gui.f_WO_Dash.gsfgBOM.GetTextMatrix(11,V.Args.MouseRow,V.Local.sPO)
+		
+		F.Intrinsic.Control.If(V.Local.sPO.Trim,=,"")
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.String.Build("O!*!{0}!*!*!*ZDR*!*",V.Local.sPO,V.Local.sParam)
+		F.Global.General.CallWrapperSync(175200,V.Local.sParam)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("gsfgbom_mouseup_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3559_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_wo_dash_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.gsfgbom_mouseup.end
+
+Program.Sub.Buildstyle.Start
+F.Intrinsic.Control.SetErrorHandler("Buildstyle_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.f_WO_Dash.gsfgBOM.Cols(15)
+
+Gui.f_WO_Dash.gsfgBOM.Rows(1)
+Gui.f_WO_Dash.gsfgBOM.Rows(2)
+Gui.f_WO_Dash.gsfgBOM.FixedRows(1)
+
+
+'Style 1
+'Column 0
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(0,0,"Item #")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(0,700)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,0,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,0,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,0,"Fontstyle","Bold",True)
+
+'Column 1
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(1,0,"Level")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(1,800)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,1,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,1,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,1,"Fontstyle","Bold",True)
+
+'Column 2
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(2,0,"Part")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(2,2000)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,2,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,2,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,2,"Fontstyle","Bold",True)
+
+'Column 3
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(3,0,"Work Order")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(3,1200)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,3,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,3,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,3,"Fontstyle","Bold",True)
+
+'Column 4
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(4,0,"Description")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(4,2400)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,4,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,4,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,4,"Fontstyle","Bold",True)
+
+'Column 5
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(5,0,"Src")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(5,400)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,5,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,5,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,5,"Fontstyle","Bold",True)
+
+'Column 6
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(6,0,"UM")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(6,400)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,6,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,6,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,6,"Fontstyle","Bold",True)
+
+'Column 7
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(7,0,"Exp Date")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(7,1060)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,7,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,7,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,7,"Fontstyle","Bold",True)
+
+'Column 8
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(8,0,"Qty Used")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(8,1500)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,8,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,8,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,8,"Fontstyle","Bold",True)
+
+'Column 9
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(9,0,"Qty On Hand")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(9,1500)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,9,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,9,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,9,"Fontstyle","Bold",True)
+
+'Column 10
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(10,0,"Qty On Order")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(10,1500)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,10,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,10,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,10,"Fontstyle","Bold",True)
+
+'Column 11
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(11,0,"PO #")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(11,900)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,11,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,11,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,11,"Fontstyle","Bold",True)
+
+'Column 12
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(12,0,"Frieght")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(12,1000)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,12,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,12,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,12,"Fontstyle","Bold",True)
+
+
+'Column 13
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(13,0,"Reqmt")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(13,1500)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,13,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,13,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,13,"Fontstyle","Bold",True)
+
+'Column 14
+Gui.f_WO_Dash.gsfgBOM.TextMatrix(14,0,"Net")
+Gui.f_WO_Dash.gsfgBOM.ColWidth(14,1500)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,14,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,14,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(1,14,"Fontstyle","Bold",True)
+
+'Style 2
+'Column 0
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,0,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,0,"Format","Alignment",6)
+
+'Column 1
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,1,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,1,"Format","Alignment",6)
+
+'Column 2
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,2,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,2,"Format","Alignment",6)
+
+'Column 3
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,3,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,3,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,3,"Fontstyle","Underline",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,3,"Color","Fore",16711680)
+
+'Column 4
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,4,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,4,"Format","Alignment",2)
+
+'Column 5
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,5,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,5,"Format","Alignment",2)
+
+'Column 6
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,6,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,6,"Format","Alignment",2)
+
+'Column 7
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,7,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,7,"Format","Alignment",4)
+
+'Column 8
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,8,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,8,"Format","Alignment",6)
+
+'Column 9
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,9,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,9,"Format","Alignment",6)
+
+'Column 10
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,10,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,10,"Format","Alignment",6)
+
+'Column 11
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,11,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,11,"Format","Alignment",4)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,11,"Fontstyle","Underline",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,11,"Color","Fore",16711680)
+
+'Column 12
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,12,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,12,"Format","Alignment",6)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,12,"Format","Mask","#0.0000")
+
+'Column 13
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,13,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,13,"Format","Alignment",6)
+
+'Column 14
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,14,"Type","LOCKED",True)
+Gui.f_WO_Dash.gsfgBOM.BuildStyle(2,14,"Format","Alignment",6)
+
+Gui.f_WO_Dash.gsfgBOM.ApplyStyle(0,1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Buildstyle_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3559_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_wo_dash_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Buildstyle.End
+
+Program.Sub.SaveJobItem.Start
+F.Intrinsic.Control.SetErrorHandler("SaveJobItem_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sJobItem.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sWO.Declare(String)
+V.Local.sSuf.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sOPart.Declare(String)
+V.Local.sSeq.Declare(String)
+
+V.Local.sJobItem.Set(V.Passed.GAB-TEXT-1)
+V.Local.sWO.Set(V.Passed.009000)
+V.Local.sSuf.Set(V.Passed.009001)
+
+F.Intrinsic.String.Build("SELECT * FROM GCG_3749_BOM_WO WHERE JOB_ITEM = '{0}' AND WORKORDER = '{1}' AND SUFFIX = '{2}'",V.Local.sJobItem,V.Local.sWO,V.Local.sSuf,V.Local.sSQL)
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+
+	F.Intrinsic.String.Build("SELECT PART FROM V_JOB_HEADER WHERE JOB = '{0}' AND SUFFIX = '{1}'",V.Local.sWO,V.Local.sSuf,V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rstPart",V.Local.sSQL)
+	
+	F.Intrinsic.Control.If(V.ODBC.con!rstPart.EOF,<>,True)
+		V.Local.sPart.Set(V.ODBC.con!rstPart.FieldValTrim!Part)
+		
+		F.Intrinsic.String.Build("INSERT INTO GCG_3749_BOM_WO VALUES ('{0}','{1}','{2}','{3}')",V.Local.sJobItem,V.Local.sWO,V.Local.sSuf,V.Local.sPart.Trim,V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.con!rstPart.Close
+
+	F.Intrinsic.String.Build("SELECT O.SEQ,O.PART AS OPART FROM V_JOB_HEADER H JOIN V_JOB_OPERATIONS O ON H.Job = O.Job AND H.SUFFIX = O.SUFFIX WHERE H.JOB = '{0}' AND H.SUFFIX = '{1}' AND O.LMO = 'M' AND O.SEQ < '990000'",V.Local.sWO,V.Local.sSuf,V.Local.sSQL)
+	F.ODBC.Connection!con.OpenRecordsetRO("rstPart",V.Local.sSQL)
+	
+	F.Intrinsic.Control.If(V.ODBC.con!rstPart.EOF,<>,True)
+		F.Intrinsic.Control.DoUntil(V.ODBC.con!rstPart.EOF,=,True)
+			V.Local.sSeq.Set(V.ODBC.con!rstPart.FieldValTrim!SEQ)
+			V.Local.sOPart.Set(V.ODBC.con!rstPart.FieldValTrim!OPART)
+			F.Intrinsic.String.Build("INSERT INTO GCG_3749_BOM_PO VALUES ('{0}','{1}','{2}','{3}')",V.Local.sWO,V.Local.sSuf,V.Local.sOPart.Trim,V.Local.sSeq.Trim,V.Local.sSQL)
+			F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			F.ODBC.con!rstPart.MoveNext
+		F.Intrinsic.Control.Loop
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.con!rstPart.Close
+F.Intrinsic.Control.EndIf
+
+F.ODBC.con!rst.Close
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("SaveJobItem_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3749_WO_Dashboard.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_wo_dash_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.SaveJobItem.End
+
+
